@@ -1,5 +1,3 @@
-# flutter_application_clear2
-
 A new Flutter project.
 
 ## Getting Started
