@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_declarations, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_clear2/Theme/app_button_style.dart';
-import 'package:flutter_application_clear2/widgets/main_screen/main_screen_widget.dart';
+import 'package:themoviedb/Theme/app_button_style.dart';
+import 'package:themoviedb/widgets/main_screen/main_screen_widget.dart';
 
 class AuthWidget extends StatefulWidget {
   AuthWidget({Key? key}) : super(key: key);
@@ -79,8 +79,8 @@ class _FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<_FormWidget> {
-  final _loginTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
+  final _loginTextController = TextEditingController(text: 'admin');
+  final _passwordTextController = TextEditingController(text: 'admin');
   String? errorText = null;
 
   void _auth() {
