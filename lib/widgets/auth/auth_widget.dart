@@ -5,7 +5,7 @@ import 'package:themoviedb/Theme/app_button_style.dart';
 import 'package:themoviedb/widgets/main_screen/main_screen_widget.dart';
 
 class AuthWidget extends StatefulWidget {
-  AuthWidget({Key? key}) : super(key: key);
+  const AuthWidget({Key? key}) : super(key: key);
 
   @override
   _AuthWidgetState createState() => _AuthWidgetState();
@@ -19,7 +19,7 @@ class _AuthWidgetState extends State<AuthWidget> {
         title: Text('Login to your account'),
       ),
       body: ListView(
-        children: [
+        children: const [
           _HeaderWidget(),
         ],
       ),
@@ -72,7 +72,7 @@ class _HeaderWidget extends StatelessWidget {
 }
 
 class _FormWidget extends StatefulWidget {
-  _FormWidget({Key? key}) : super(key: key);
+  const _FormWidget({Key? key}) : super(key: key);
 
   @override
   _FormWidgetState createState() => _FormWidgetState();

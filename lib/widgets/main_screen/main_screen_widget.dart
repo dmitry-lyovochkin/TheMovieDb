@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/widgets/movie_list/movie_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
-  MainScreenWidget({Key? key}) : super(key: key);
+  const MainScreenWidget({Key? key}) : super(key: key);
 
   @override
   _MainScreenWidgetState createState() => _MainScreenWidgetState();
-}
+} 
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
@@ -13,9 +14,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
     Text(
       'Новости',
     ),
-    Text(
-      'Фильмы',
-    ),
+    MovieListWidget(),
     Text(
       'Сериалы',
     ),
@@ -58,4 +57,5 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
     );
   }
 }
-// 18:56
+
+// 18
