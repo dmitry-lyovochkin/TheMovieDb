@@ -26,7 +26,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       ),
       body: IndexedStack(
           index: _selectedTab,
-        children: [
+        children: const [
           Text(
             'Новости',
           ),
@@ -57,4 +57,3 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
     );
   }
 }
-

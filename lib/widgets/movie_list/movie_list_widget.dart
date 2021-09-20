@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class Movie {
+  final int id;
   final String imageName;
   final String title;
   final String time;
   final String description;
 
   Movie({
+    required this.id,
     required this.imageName,
     required this.title,
     required this.time,
@@ -16,7 +18,7 @@ class Movie {
 }
 
 class MovieListWidget extends StatefulWidget {
-  MovieListWidget({Key? key}) : super(key: key);
+  const MovieListWidget({Key? key}) : super(key: key);
 
   @override
   State<MovieListWidget> createState() => _MovieListWidgetState();
@@ -25,60 +27,70 @@ class MovieListWidget extends StatefulWidget {
 class _MovieListWidgetState extends State<MovieListWidget> {
   final _movies = [
     Movie(
+      id: 1,
       imageName: AppImages.moviePlacholder,
       title: 'Смертельная битва',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 2,
       imageName: AppImages.moviePlacholder,
       title: 'Прибытие',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 3,
       imageName: AppImages.moviePlacholder,
       title: 'Скайнлайн',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 4,
       imageName: AppImages.moviePlacholder,
       title: 'Назад в будущее 1',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 5,
       imageName: AppImages.moviePlacholder,
       title: 'Назад в будущее 2',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 6,
       imageName: AppImages.moviePlacholder,
       title: 'Ёлки',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 7,
       imageName: AppImages.moviePlacholder,
       title: 'Джентельмены',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 8,
       imageName: AppImages.moviePlacholder,
       title: 'Тихие зори',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 9,
       imageName: AppImages.moviePlacholder,
       title: 'В бой идут одни старики',
       time: 'April 7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 10,
       imageName: AppImages.moviePlacholder,
       title: 'Дюна',
       time: 'April 7, 2021',
@@ -109,12 +121,20 @@ class _MovieListWidgetState extends State<MovieListWidget> {
     _searchController.addListener(_searchMovies);
   }
 
+  void _onMovieTap(int index) {
+    final id = _movies[index].id;
+    Navigator.of(context).pushNamed(
+      '/main_screen/movie_details', 
+      arguments: 'id',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         ListView.builder(
-          padding: EdgeInsets.only(top: 70),
+          padding: const EdgeInsets.only(top: 70),
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           itemCount: _filteredMovies.length,
           itemExtent: 163,
@@ -146,25 +166,25 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
                                 movie.title,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: const TextStyle(fontWeight: FontWeight.bold),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Text(
                                 movie.time,
-                                style: TextStyle(color: Colors.grey),
+                                style: const TextStyle(color: Colors.grey),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
@@ -183,10 +203,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(10),
-                      onTap: () {
-                        // ignore: avoid_print
-                        print('11');
-                      },
+                      onTap: () => _onMovieTap(index),
                     ),
                   ),
                 ],
@@ -202,7 +219,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
               labelText: 'Поиск',
               filled: true,
               fillColor: Colors.white.withAlpha(235),
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
             ),
           ),
         ),
