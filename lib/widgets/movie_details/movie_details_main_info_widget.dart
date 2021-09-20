@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themoviedb/resources/resources.dart';
 import 'package:themoviedb/widgets/elements/radial_percent_widget.dart';
-
 class MovieDetailsMainInfoWidget extends StatelessWidget {
   const MovieDetailsMainInfoWidget({Key? key}) : super(key: key);
 
@@ -121,10 +120,10 @@ class _ScroreWidget extends StatelessWidget {
         TextButton(onPressed: () {}, child: Row(
           children: const [
             SizedBox(
-              width: 40,
-              height: 40,
+              width: 45,
+              height: 45,
               child: RadialPercentWidget(
-                child: Text('72'), 
+                child: Text('72%'), 
                 percent: 0.72, 
                 fillColor: Color.fromARGB(255, 10, 23, 25), 
                 lineColor: Color.fromARGB(255, 37, 203, 103), 
@@ -161,7 +160,7 @@ class _SummeryWidget extends StatelessWidget {
     return const ColoredBox(
       color: Color.fromRGBO(22, 21, 25, 1.0),
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.symmetric(horizontal: 90, vertical: 10),
         child: Text(
           'R, 29/04/2021 (US) 1h49m Action, Advanture, Thriller, War',
           maxLines: 3,
